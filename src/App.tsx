@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import { Box, Button, Drawer, Tab, Tabs } from '@mui/material'
-// import { useHotkeys } from 'react-hotkeys-hook'
+import { useHotkeys } from 'react-hotkeys-hook'
 
 const App: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -14,8 +14,8 @@ const App: React.FC = () => {
   const toggleDrawer = (): void => {
     setIsDrawerOpen(!isDrawerOpen)
   }
-  // useHotkeys("ctrl+shift+s", toggleDrawer, { enableOnTags: ["INPUT", "TEXTAREA", "SELECT"] } as any);
-  // useHotkeys("esc", () => setIsDrawerOpen(false))
+  useHotkeys("ctrl+shift+s", toggleDrawer);
+  useHotkeys("esc", () => setIsDrawerOpen(false))
 
 
 
@@ -42,7 +42,7 @@ const App: React.FC = () => {
           >
             <Tab
               value="one"
-              label="New Arrivals in the Longest Text of Nonfiction that should appear in the next line"
+              label="Item One"
               wrapped
             />
             <Tab value="two" label="Item Two" />
