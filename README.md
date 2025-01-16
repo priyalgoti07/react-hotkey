@@ -61,7 +61,14 @@ Of course, we also want to leverage more complex keystrokes. useHotkeys supports
 Receiving focus on a button to enable a hotkey in a real world application is not very useful. Instead, we generally would like to set the focus to a modal or let the user click on an area which then receives the focus and enables its attached hotkeys
 
 ### Examples of Non-Focusable Tags:
-- <div> ,<span>, <p>, <ul> / <li>, <h1> to <h6>, <section>, <article> and **<table> (except interactive elements inside it, like <input>, <button> in a cell)
+- <div> 
+- <span>
+- <p>
+- <ul> / <li>
+- <h1> to <h6>
+- <section>
+- <article>
+- **<table> (except interactive elements inside it, like <input>, <button> in a cell)
  
 ### Nesting scoped hotkeys: 
 - https://codesandbox.io/p/sandbox/restless-cache-7hjys2?file=%2Fsrc%2FApp.js%3A3%2C49
