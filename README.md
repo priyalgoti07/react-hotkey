@@ -21,7 +21,7 @@ It doesn't matter if we listen for CTRL+S, Ctrl+s, ctrl+S or any other possible 
 ### Multiple hotkeys
 We can also listen to multiple keystrokes and/or hotkeys and trigger the same callback. Combinations are separated by a comma sign
 
-[View the live example on CodeSandbox] (https://codesandbox.io/p/sandbox/dazzling-wilbur-pjtxzy?file=%2Fsrc%2FApp.js%3A16%2C1)
+[View the live example on CodeSandbox](https://codesandbox.io/p/sandbox/dazzling-wilbur-pjtxzy?file=%2Fsrc%2FApp.js%3A16%2C1)
 
 ### Modifiers & Special keys
 Of course, we also want to leverage more complex keystrokes. useHotkeys supports the following modifiers:
@@ -33,7 +33,7 @@ Of course, we also want to leverage more complex keystrokes. useHotkeys supports
 
 ### Hotkey for Ctrl+P (Windows/Linux) or Cmd+P (macOS)
 
-[View the live example on CodeSandbox] https://codesandbox.io/p/sandbox/tender-dust-q993jm?file=%2Fsrc%2FApp.js
+[View the live example on CodeSandbox](https://codesandbox.io/p/sandbox/tender-dust-q993jm?file=%2Fsrc%2FApp.js)
 
 ### There are also special keys like arrows, return, space bar, etc. that have their own name that can be used:
 - backspace 
@@ -47,10 +47,11 @@ Of course, we also want to leverage more complex keystrokes. useHotkeys supports
 - f1, f2...f9
 
 ### Global hotkeys and scoped components
-- Hotkeys are attached globally, so there is no default scoping mechanism for them to only trigger if the component is focused. To emphasize the issue, check out these two components : https://codesandbox.io/p/sandbox/tender-worker-czdhhz?file=%2Fsrc%2FApp.js%3A15%2C18
+- Hotkeys are attached globally, so there is no default scoping mechanism for them to only trigger if the component is focused. To emphasize the issue, check out these two components : 
+[View the live example on CodeSandbox](https://codesandbox.io/p/sandbox/tender-worker-czdhhz?file=%2Fsrc%2FApp.js%3A15%2C18)
 
 - Everytime we press down the c key, both component trigger the callback. But how can we separate those two components and their assigned hotkeys? The answer is Refs. useHotkeys returns a React ref callback function that we can attach to any component that takes a ref. This way we can tell the hook which element should receive the users focus before it triggers its callback.
-- https://codesandbox.io/p/sandbox/crazy-bartik-kmq4hm?file=%2Fsrc%2FApp.js%3A44%2C1
+- [View the live example on CodeSandbox](https://codesandbox.io/p/sandbox/crazy-bartik-kmq4hm?file=%2Fsrc%2FApp.js%3A44%2C1)
  
 ## Key Points:
 - Elements like <button>, <a> (with href), and form controls (<input>, <textarea>, etc.) are focusable by default.
@@ -73,3 +74,17 @@ Receiving focus on a button to enable a hotkey in a real world application is no
 
 ### Nesting scoped hotkeys: 
 [View an example on CodeSandbox](https://codesandbox.io/p/sandbox/restless-cache-7hjys2?file=%2Fsrc%2FApp.js%3A3%2C249)
+
+### Setting callback dependencies
+The callback we pass to useHotkeys gets memoised automatically inside the useHotkeys hook to prevent unnecessary re-renders. This can lead to problems with stale state. To prevent those problems, the hook accepts a dependencies array just like Reacts internal useEffect, useMemo and useCallback hooks
+
+### Disable/Enable Hotkeys
+We are now able to register our hotkeys, scope them to the component (or part of a component) and prevent stale state inside our callback. But our hotkeys are always active. If the component has received focus, it will always trigger. However, sometimes we want to dynamically decide if the hotkey should even be enabled
+
+- There are multiple ways to disable a hotkey. Let's go through all of them.
+
+### There are multiple ways to disable a hotkey. Let's go through all of them.
+- There are multiple ways to disable a hotkey. Let's go through all of them.
+
+### useRecordHotkeys
+[View an example on CodeSandbox](https://codesandbox.io/p/sandbox/clever-kare-hw2c6y?file=%2Fsrc%2FApp.js%3A3%2C55)
