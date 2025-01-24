@@ -7,15 +7,23 @@ const App: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [value, setValue] = React.useState('one');
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
   // Hotkey to toggle the drawer
   const toggleDrawer = (): void => {
     setIsDrawerOpen(!isDrawerOpen)
   }
-  useHotkeys("ctrl+shift+s", toggleDrawer);
+  useHotkeys("ctrl+shift+a", (event) => {
+    event.preventDefault()
+    toggleDrawer()
+  });
+
+  const handleForword = () => {
+
+  }
   useHotkeys("esc", () => setIsDrawerOpen(false))
+  useHotkeys("ctrl+right", handleForword())
 
 
 
@@ -33,8 +41,9 @@ const App: React.FC = () => {
         anchor="right"
         open={isDrawerOpen}
         onClose={toggleDrawer}
+        sx={{ "& .MuiDrawer-paper": { width: "600px" } }} // Increased size
       >
-        <Box sx={{ width: '100%' }}>
+        <Box>
           <Tabs
             value={value}
             onChange={handleChange}
