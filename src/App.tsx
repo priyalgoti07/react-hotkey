@@ -101,6 +101,8 @@ const App: React.FC = () => {
         style={{ marginBottom: "16px" }}
       >
         Open Drawer
+        <br />
+        ctrl+shift+a
       </Button>
 
       {/* Drawer component */}
@@ -110,7 +112,7 @@ const App: React.FC = () => {
         onClose={toggleDrawer}
         sx={{ "& .MuiDrawer-paper": { width: "600px" } }} // Set drawer width
       >
-        <Box>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           {/* Tabs for different sections */}
           <Tabs
             value={currentTab}
